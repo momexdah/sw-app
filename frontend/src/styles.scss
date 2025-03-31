@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+/* src/styles.scss */
+
+/* Importación de Bootstrap */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Estilos globales */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Iconos Bootstrap */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+/* Star Wars temática */
+.bg-star-wars {
+  background-color: #000;
+  color: #ffe81f;
+}
+
+.text-star-wars {
+  color: #ffe81f;
+}
+
+/* Animaciones y transiciones */
+.fade-in {
+  animation: fadeIn ease 0.5s;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}

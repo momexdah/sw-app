@@ -1,0 +1,79 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+  .navbar-brand {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-link {
+    position: relative;
+
+    &.active {
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #ffe81f; // Star Wars yellow
+      }
+    }
+  }
+}
+
+.main-content {
+  flex: 1 0 auto;
+  background-color: #f8f9fa;
+  position: relative;
+  padding: 20px 0;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(180deg, #212529 0%, rgba(33, 37, 41, 0) 100%);
+    opacity: 0.05;
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.footer {
+  flex-shrink: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* Star Wars themed styles */
+.text-sw-yellow {
+  color: #ffe81f;
+}
+
+.bg-space {
+  background-color: #121212;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0iIzEyMTIxMiI+PC9yZWN0PjxjaXJjbGUgY3g9IjEwIiBjeT0iMTAiIHI9IjEiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuMyI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iNzAiIGN5PSI5MCIgcj0iMS41IiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjMiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEzMCIgY3k9IjQwIiByPSIxIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjQiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjE5MCIgY3k9IjE4MCIgcj0iMiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC40Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIyODAiIGN5PSI5MCIgcj0iMSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC4zIj48L2NpcmNsZT48Y2lyY2xlIGN4PSIzNjAiIGN5PSIyMDAiIHI9IjEuNSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC4zIj48L2NpcmNsZT48Y2lyY2xlIGN4PSI1MCIgY3k9IjI1MCIgcj0iMSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC40Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxMTAiIGN5PSIzMzAiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjMwIiBjeT0iMjgwIiByPSIxIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjMiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjMyMCIgY3k9IjM2MCIgcj0iMS41IiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjMiPjwvY2lyY2xlPjwvc3ZnPg==');
+}

@@ -1,0 +1,81 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Star Wars - Personajes</h1>
+    <div>
+      <button
+        class="btn btn-primary"
+        (click)="initializeData()"
+        [disabled]="initializing">
+        <span *ngIf="initializing" class="spinner-border spinner-border-sm me-2"></span>
+        {{ initializing ? 'Inicializando...' : 'Cargar datos de SWAPI' }}
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && persons.length === 0" class="alert alert-warning">
+    No hay personajes disponibles. Haz clic en "Cargar datos de SWAPI" para inicializar.
+  </div>
+
+  <div *ngIf="!loading && persons.length > 0" class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Altura</th>
+          <th>Peso</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let person of persons">
+          <td>{{ person.id }}</td>
+          <td>{{ person.name }}</td>
+          <td>{{ person.height }}</td>
+          <td>{{ person.mass }}</td>
+          <td>
+            <button class="btn btn-info btn-sm me-2" (click)="showShips(person)">
+              <i class="bi bi-rocket"></i> Ver naves
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="deletePerson(person)">
+              <i class="bi bi-trash"></i> Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal de naves -->
+<div *ngIf="showShipsModal" class="modal d-block" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Naves de {{ selectedPerson?.name }}</h5>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="!selectedPerson || !selectedPerson.starships || selectedPerson.starships.length === 0" class="alert alert-info">
+          Este personaje no tiene naves asociadas.
+        </div>
+        <ul *ngIf="selectedPerson && selectedPerson.starships && selectedPerson.starships.length > 0" class="list-group">
+          <li *ngFor="let ship of selectedPerson.starships" class="list-group-item">
+            <div class="fw-bold">{{ ship.name }}</div>
+            <div>Modelo: {{ ship.model }}</div>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade show"></div>
+</div>
